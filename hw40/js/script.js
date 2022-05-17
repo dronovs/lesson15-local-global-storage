@@ -9,25 +9,32 @@ void function () {
         event.preventDefault();
 
         let inputs = event.target.querySelectorAll(inputsSelectors);
+        console.log(inputs);
         inputs = Array.from(inputs);
+        console.log(inputs);
 
         let inputsData = inputs.reduce((acc, item) => {
             acc[item.name] = item.value;
             return acc;
             },{})
 
+        console.log(inputsData);
+
         inputsData = JSON.stringify(inputsData);
+        console.log(inputsData);
 
         localStorage.setItem(localStorageSubmitData, inputsData);
 
-        console.log(localStorage.getItem(localStorageSubmitData));
+        // console.log(localStorage.getItem(localStorageSubmitData));
     })
 
     document.addEventListener('DOMContentLoaded', () => {
         let userData = localStorage.getItem(localStorageSubmitData);
         if (!userData) return;
+        console.log(userData);
 
         userData = JSON.parse(userData);
+        console.log(userData);
 
         let inputs = submitForm.querySelectorAll(inputsSelectors);
         inputs = Array.from(inputs);
@@ -40,6 +47,6 @@ void function () {
             }
         })
 
-        console.log(inputs);
     })
 }()
+
