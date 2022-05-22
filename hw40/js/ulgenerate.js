@@ -1,7 +1,6 @@
 'use strict';
 void function () {
     let mainUl = document.querySelector('.main-ul');
-
     let formData = localStorage.getItem('formData');
 
     if (!formData) throw new Error('no user data');
